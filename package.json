@@ -1,0 +1,17 @@
+{
+  "name": "webnote",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node ./scripts/check.mjs",
+    "hash:admin": "node ./scripts/generate-admin-hash.mjs",
+    "types": "npx wrangler types",
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.34.0"
+  }
+}
+

@@ -1,0 +1,45 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "webnote",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-03-22",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/",
+      "/admin*",
+      "/api/*"
+    ]
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "PATH_MIN_LENGTH": "1",
+    "PATH_MAX_LENGTH": "32",
+    "HOT_CACHE_THRESHOLD": "10",
+    "HOT_CACHE_TTL_LOW": "300",
+    "HOT_CACHE_TTL_MID": "1800",
+    "HOT_CACHE_TTL_HIGH": "7200",
+    "VIEW_DEDUPE_SECONDS": "60",
+    "ADMIN_USERNAME": "admin"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "webnote-db",
+      "database_id": "403c3ec6-dd41-4a09-b611-6a696ff05ef1",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "HOT_CACHE",
+      "id": "10821b4e89aa4d768715019ecd28649e"
+    }
+  ]
+}
+
